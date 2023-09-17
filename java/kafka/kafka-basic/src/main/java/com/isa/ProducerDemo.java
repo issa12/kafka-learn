@@ -19,11 +19,7 @@ public class ProducerDemo {
 
         /*
         https://issa.conduktor.app/admin/my-playground
-        user
-        w22YdpPqqt9urXwJVjgvZ
-
-        password
-        eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2F1dGguY29uZHVrdG9yLmlvIiwic291cmNlQXBwbGljYXRpb24iOiJhZG1pbiIsInVzZXJNYWlsIjpudWxsLCJwYXlsb2FkIjp7InZhbGlkRm9yVXNlcm5hbWUiOiJ3MjJZZHBQcXF0OXVyWHdKVmpndloiLCJvcmdhbml6YXRpb25JZCI6NzY2ODksInVzZXJJZCI6ODkyMjYsImZvckV4cGlyYXRpb25DaGVjayI6IjZhNGU5ZWE5LWNjNmYtNDE5NC1iMGJiLTNlNDg1OGQ0N2VkYiJ9fQ.4ZU_0RDtYCKPfEfeQORkdmdStRdXYzceWJGLIN9yTbA
+        user: w22YdpPqqt9urXwJVjgvZ
         security.protocol=SASL_SSL
         sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="w22YdpPqqt9urXwJVjgvZ" password="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2F1dGguY29uZHVrdG9yLmlvIiwic291cmNlQXBwbGljYXRpb24iOiJhZG1pbiIsInVzZXJNYWlsIjpudWxsLCJwYXlsb2FkIjp7InZhbGlkRm9yVXNlcm5hbWUiOiJ3MjJZZHBQcXF0OXVyWHdKVmpndloiLCJvcmdhbml6YXRpb25JZCI6NzY2ODksInVzZXJJZCI6ODkyMjYsImZvckV4cGlyYXRpb25DaGVjayI6IjZhNGU5ZWE5LWNjNmYtNDE5NC1iMGJiLTNlNDg1OGQ0N2VkYiJ9fQ.4ZU_0RDtYCKPfEfeQORkdmdStRdXYzceWJGLIN9yTbA";
         sasl.mechanism=PLAIN
@@ -48,7 +44,7 @@ public class ProducerDemo {
             producer.flush();
             producer.close();
         } catch (Exception e) {
-            log.error("ff", e);
+            log.error("Error Sending", e);
         }
 
 
