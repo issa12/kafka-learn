@@ -25,7 +25,7 @@ kafka-topics.sh --command-config playground.config --bootstrap-server cluster.pl
 kafka-topics.sh --command-config playground.config --bootstrap-server cluster.playground.cdkt.io:9092 --create --topic third_topic --replication-factor 2
 
 # list topics
-kafka-topics --command-config playground.config --bootstrap-server cluster.playground.cdkt.io:9092 --list
+kafka-topics.sh --command-config playground.config --bootstrap-server cluster.playground.cdkt.io:9092 --list
 
 # describe topics
 kafka-topics.sh --command-config playground.config --bootstrap-server cluster.playground.cdkt.io:9092 --topic first_topic --describe
