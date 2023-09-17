@@ -44,9 +44,7 @@ public class ProducerDemo {
             producer.flush();
             producer.close();
         } catch (Exception e) {
-            log.error("Error Sending", e);
+            log.error("Error Sending=", e);
         }
-
-
     }
 }
