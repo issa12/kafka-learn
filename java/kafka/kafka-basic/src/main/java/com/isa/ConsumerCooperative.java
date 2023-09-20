@@ -2,6 +2,7 @@ package com.isa;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.CooperativeStickyAssignor;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.errors.WakeupException;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -12,8 +13,8 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
-public class ConsumerShutDown {
-    private final static Logger log = LoggerFactory.getLogger(ConsumerShutDown.class.getSimpleName());
+public class ConsumerCooperative {
+    private final static Logger log = LoggerFactory.getLogger(ConsumerCooperative.class.getSimpleName());
 
     public static void main(String[] args) {
         log.debug("Kafka Consumer");
@@ -42,6 +43,8 @@ public class ConsumerShutDown {
         prop.setProperty("value.deserializer", StringDeserializer.class.getName());
         prop.setProperty("group.id", groupId);
         prop.setProperty("auto.offset.reset", "earliest");
+        prop.setProperty("partition.assignment.strategy", CooperativeStickyAssignor.class.getName());
+
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(prop);
 
         final Thread mainThread = Thread.currentThread();
@@ -66,7 +69,6 @@ public class ConsumerShutDown {
 
 
         while (true) {
-            log.info("================================ Polling ============================");
             ConsumerRecords<String, String> records =  consumer.poll(Duration.ofMillis(1000));
             for (ConsumerRecord<String, String> rec : records ) {
                 log.info("key: {}, value: {}\nPartition:{}, offset: {}",

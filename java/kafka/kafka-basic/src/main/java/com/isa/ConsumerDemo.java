@@ -45,8 +45,7 @@ public class ConsumerDemo {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(prop);
         consumer.subscribe(Arrays.asList(topic));
         while (true) {
-            log.info("================================ Polling ============================");
-            ConsumerRecords<String, String> records =  consumer.poll(Duration.ofMillis(1000));
+            ConsumerRecords<String, String> records =  consumer.poll(Duration.ofMillis(2000));
 
             for (ConsumerRecord<String, String> rec : records ) {
                 log.info("key: {}, value: {}\nPartition:{}, offset: {}",
