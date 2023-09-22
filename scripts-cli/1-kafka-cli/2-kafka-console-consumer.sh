@@ -34,6 +34,9 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic second_topic --create 
 # consuming
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic second_topic
 
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic second_topic
+
+
 # other terminal
 kafka-console-producer.sh --bootstrap-server localhost:9092 --producer-property partitioner.class=org.apache.kafka.clients.producer.RoundRobinPartitioner --topic second_topic
 

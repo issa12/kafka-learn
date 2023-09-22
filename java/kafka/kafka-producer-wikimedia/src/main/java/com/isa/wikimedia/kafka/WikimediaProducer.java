@@ -28,6 +28,10 @@ public class WikimediaProducer {
 
         prop.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         prop.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        prop.setProperty(ProducerConfig.LINGER_MS_CONFIG, "20");
+        prop.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, Integer.toString(32*1024));
+        prop.setProperty(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy");
+
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(prop);
 
